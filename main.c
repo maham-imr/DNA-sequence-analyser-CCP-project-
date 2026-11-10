@@ -17,12 +17,22 @@ void options();
 
 int main(int argc, char *argv[]) {
 	int choice,validation;
-	char dna[1000],rna_trans[1000];
+	char dna[1000],rna_trans[1000],ans[5];
 	int len=0;
 	int gc_len=0;
 	int at_len=0;
 	main_menu();
+	
 	do{
+		options();
+		scanf("%d",&choice);
+		
+		if (choice == 6){
+			break;
+		}
+		
+		
+		
 		validation =0;
 		do{
 			printf("\nEnter Valid Dna Sequence:\n");
@@ -40,8 +50,7 @@ int main(int argc, char *argv[]) {
 		
 		
 	    
-		options();
-		scanf("%d",&choice);
+		
 	
 		switch(choice){
 			case 1:
@@ -79,9 +88,14 @@ int main(int argc, char *argv[]) {
 				break;
 		}
 		
+		printf("Do you wish to continue?\n");
+		scanf("%s", &ans);
+		lowercase(ans);
+		
+		
 		
 		    	
-	}while(choice != 6);
+	}while(choice != 6 && ans == "yes");
 		
     printf("Thankyou for using our DNA sequence analyzer!!!");
 
